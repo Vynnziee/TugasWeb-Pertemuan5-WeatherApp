@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buletin Cuaca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="sheet">
+
+  <div class="sheet__holes" aria-hidden="true"></div>
+
+  <header class="head">
+    <div class="head__mark">☁</div>
+    <div class="head__text">
+      <h1>Buletin Cuaca</h1>
+      <p class="head__sub">Laporan cuaca langsung dari OpenWeatherMap</p>
+    </div>
+    <button id="unitToggle" class="unit-toggle" type="button" aria-label="Ganti satuan suhu">°C</button>
+  </header>
+
+  <form id="searchForm" class="search">
+    <input type="text" id="cityInput" placeholder="Ketik nama kota, misalnya Medan" autocomplete="off" required>
+    <button type="submit">Cari</button>
+  </form>
+
+  <div id="historyRow" class="history" hidden></div>
+
+  <div id="statusBox" class="status" hidden></div>
+
+  <section id="resultCard" class="result" hidden>
+    <div class="result__top">
+      <div>
+        <h2 id="cityName">—</h2>
+        <p id="cityMeta">—</p>
+      </div>
+      <img id="weatherIcon" alt="" width="72" height="72">
+    </div>
+
+    <div class="result__temp">
+      <span id="temperature">—</span>
+      <p id="description">—</p>
+    </div>
+
+    <dl class="result__stats">
+      <div>
+        <dt>Terasa seperti</dt>
+        <dd id="feelsLike">—</dd>
+      </div>
+      <div>
+        <dt>Kelembaban</dt>
+        <dd id="humidity">—</dd>
+      </div>
+      <div>
+        <dt>Angin</dt>
+        <dd id="wind">—</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="forecastRow" class="forecast" hidden>
+    <p class="forecast__label">Ramalan 5 hari ke depan</p>
+    <div id="forecastCards" class="forecast__cards"></div>
+  </section>
+
+  <footer class="foot">
+    <p>Weather App · data oleh OpenWeatherMap</p>
+  </footer>
+
+  <div class="sheet__tear" aria-hidden="true"></div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
